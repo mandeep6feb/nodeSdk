@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -15,12 +15,17 @@ export class UrlTestComponent implements OnInit {
   url: any;
   errorMessage: any;
   dataD: any;
+  corsHeaders: any;
   constructor(public http: HttpClient, public route: Router, public toast: ToastrService) { 
     this.dataD = new DataD();
   }
 
   signIn() {
-     
+    this.corsHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    });
     this.http.post(this.url + 'login', this.dataD).subscribe( (res: any ) => {
         // window.open("https://www.google.com", "_blank");
         // console.log(res);
