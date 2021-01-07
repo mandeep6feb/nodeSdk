@@ -2,7 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
+export class DataD {
+  email: any;
+  password: any;
+}
 @Component({
   selector: 'app-url-test',
   templateUrl: './url-test.component.html',
@@ -11,12 +14,14 @@ import { ToastrService } from 'ngx-toastr';
 export class UrlTestComponent implements OnInit {
   url: any;
   errorMessage: any;
-  constructor(public http: HttpClient, public route: Router, public toast: ToastrService) { }
+  dataD: any;
+  constructor(public http: HttpClient, public route: Router, public toast: ToastrService) { 
+    this.dataD = new DataD();
+  }
 
   signIn() {
-   
-    const data = { email: 'demo.com', password: '1234'};
-    this.http.post(this.url + 'login', data).subscribe( (res: any ) => {
+     
+    this.http.post(this.url + 'login', this.dataD).subscribe( (res: any ) => {
         // window.open("https://www.google.com", "_blank");
         // console.log(res);
         this.toast.success('User Authenticate!' ,  'Success' , 
@@ -24,7 +29,7 @@ export class UrlTestComponent implements OnInit {
           disableTimeOut: false,
           timeOut: 1000,
           progressBar: true, 
-          positionClass: 'toast-bottom-right',
+          positionClass: 'toast-top-right',
           tapToDismiss: false,
           onActivateTick: true, 
           // messageClass: 'toast-message',
@@ -46,7 +51,7 @@ export class UrlTestComponent implements OnInit {
       {
         timeOut: 2000,
         progressBar: true, 
-        positionClass: 'toast-center-center',
+        positionClass: 'toast-top-right',
         tapToDismiss: false,
         onActivateTick: true, 
         messageClass: 'toast-message',

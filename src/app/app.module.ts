@@ -9,6 +9,7 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WebSiteComponent } from './web-site/web-site.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { WebSiteComponent } from './web-site/web-site.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     NgxDocViewerModule,
     ToastrModule.forRoot({
