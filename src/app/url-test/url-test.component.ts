@@ -24,7 +24,7 @@ export class UrlTestComponent implements OnInit {
     this.corsHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': 'https://52.66.240.78:3000/'
     });
     this.http.post(this.url + 'login', this.dataD).subscribe( (res: any ) => {
         // window.open("https://www.google.com", "_blank");
