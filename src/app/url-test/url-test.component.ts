@@ -1,0 +1,69 @@
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
+@Component({
+  selector: 'app-url-test',
+  templateUrl: './url-test.component.html',
+  styleUrls: ['./url-test.component.css']
+})
+export class UrlTestComponent implements OnInit {
+  url: any;
+  errorMessage: any;
+  constructor(public http: HttpClient, public route: Router, public toast: ToastrService) { }
+
+  signIn() {
+   
+    const data = { email: 'demo.com', password: '1234'};
+    this.http.post(this.url + 'login', data).subscribe( (res: any ) => {
+        // window.open("https://www.google.com", "_blank");
+        // console.log(res);
+        this.toast.success('User Authenticate!' ,  'Success' , 
+        {
+          disableTimeOut: false,
+          timeOut: 1000,
+          progressBar: true, 
+          positionClass: 'toast-bottom-right',
+          tapToDismiss: false,
+          onActivateTick: true, 
+          // messageClass: 'toast-message',
+          closeButton: true,
+          // extendedTimeOut: 3500,
+          easing: 'ease-in',
+          enableHtml: true,
+        })
+        setTimeout( () => {
+          this.route.navigateByUrl('sita?token=' +  res.token)
+          // window.open('http://localhost:4200/sita?token=' + res.token ,"_blank")
+        }, 2000)
+          // 
+        // this.route.navigateByUrl('https://www.soolegan.com/sita=' + res.token);
+    }, err => {
+      this.errorMessage = err.error.message;
+
+      this.toast.error(this.errorMessage ,  'Error' , 
+      {
+        timeOut: 2000,
+        progressBar: true, 
+        positionClass: 'toast-center-center',
+        tapToDismiss: false,
+        onActivateTick: true, 
+        messageClass: 'toast-message',
+        closeButton: true,
+        // extendedTimeOut: 3500,
+        easing: 'ease-in',
+        enableHtml: true,
+        
+      })
+      
+      // console.log(this.errorMessage);
+    })
+  }
+ 
+  //https://www.soolegal.com/vendor/sita=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlbW8uY29tIiwiaWF0IjoxNjA5MzI2NjU4LCJleHAiOjE2MDk0MTMwNTh9.7cONT-DVyA7zhEKmd_cKymTXkKrFpgpECUHJihdakyc
+  ngOnInit(): void {
+    this.url = 'http://localhost:3000/';
+  }
+
+}

@@ -1,0 +1,18 @@
+
+<!-- <h4><strong>Secret Key : &nbsp;</strong>{{geted?.password}}</h4> -->
+<div class="card text-white bg-dark mb-3" *ngIf="geted" style="width: 28rem;">
+    <div class="card-header">Details</div>
+    <div class="card-body">
+        <p><strong>First Name : &nbsp;</strong>{{geted?.fname}}</p>
+        <p><strong>Last Name : &nbsp;</strong>{{geted?.lname}}</p>
+        <p><strong>Email : &nbsp;</strong>{{geted?.email}}</p>
+        <p><strong>Key : &nbsp;</strong>{{geted?.id}}</p>
+        <p><strong>Mobile : &nbsp;</strong>{{geted?.mobile}}</p>
+    </div>
+  </div>
+  <div class="card text-white bg-dark mb-3" *ngIf="err" style="width: 28rem;">
+    <div class="card-header">Error</div>
+    <div class="card-body">
+        <h3>{{this.err}}</h3>
+    </div>
+  </div>
