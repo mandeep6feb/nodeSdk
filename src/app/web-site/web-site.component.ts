@@ -16,7 +16,7 @@ export class WebSiteComponent implements OnInit {
   }
   getData() {
     setTimeout( () => {
-      const url = 'http://localhost:3000/'
+      const url = 'https://d43a5ba43d01.ngrok.io/'
       this.http.get( url + 'sita?token=' + this.data ).subscribe( (res: any): void => {
        this.geted =res;
       }, error => {
