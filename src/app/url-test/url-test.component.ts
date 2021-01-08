@@ -21,15 +21,11 @@ export class UrlTestComponent implements OnInit {
   }
 
   signIn() {
-    this.corsHeaders = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Access-Control-Allow-Origin': 'https://52.66.240.78:3000/'
-    });
+  
     this.http.post(this.url + 'login', this.dataD).subscribe( (res: any ) => {
         // window.open("https://www.google.com", "_blank");
         // console.log(res);
-        this.toast.success('User Authenticate!' ,  'Success' , 
+        this.toast.success('User Authenticated!' ,  'Success' , 
         {
           disableTimeOut: false,
           timeOut: 1000,
@@ -73,7 +69,7 @@ export class UrlTestComponent implements OnInit {
  
   //https://www.soolegal.com/vendor/sita=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlbW8uY29tIiwiaWF0IjoxNjA5MzI2NjU4LCJleHAiOjE2MDk0MTMwNTh9.7cONT-DVyA7zhEKmd_cKymTXkKrFpgpECUHJihdakyc
   ngOnInit(): void {
-    this.url = 'http://52.66.240.78:3000/';
+    this.url = 'http://localhost:3000/';
   }
 
 }

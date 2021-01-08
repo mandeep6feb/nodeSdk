@@ -16,7 +16,7 @@ export class WebSiteComponent implements OnInit {
   }
   getData() {
     setTimeout( () => {
-      const url = 'http://52.66.240.78:3000/'
+      const url = 'http://localhost:3000/'
       this.http.get( url + 'sita?token=' + this.data ).subscribe( (res: any): void => {
        this.geted =res;
       }, error => {
