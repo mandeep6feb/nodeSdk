@@ -70,6 +70,7 @@ export class UrlTestComponent implements OnInit {
   //https://www.soolegal.com/vendor/sita=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlbW8uY29tIiwiaWF0IjoxNjA5MzI2NjU4LCJleHAiOjE2MDk0MTMwNTh9.7cONT-DVyA7zhEKmd_cKymTXkKrFpgpECUHJihdakyc
   ngOnInit(): void {
     this.url = 'https://d43a5ba43d01.ngrok.io/';
+    // this.url = 'http://localhost:3000/';
   }
 
 }

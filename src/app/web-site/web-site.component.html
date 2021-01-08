@@ -1,21 +1,35 @@
 
 <!-- <h4><strong>Secret Key : &nbsp;</strong>{{geted?.password}}</h4> -->
-<div class="card text-white bg-dark mb-3" *ngIf="geted" style="width: 28rem;">
-    <div class="card-header">Details</div>
-    <div class="card-body">
-        <p><strong>First Name : &nbsp;</strong>{{geted?.fname}}</p>
-        <p><strong>Last Name : &nbsp;</strong>{{geted?.lname}}</p>
-        <p><strong>Email : &nbsp;</strong>{{geted?.email}}</p>
-        <p><strong>Key : &nbsp;</strong>{{geted?.id}}</p>
-        <p><strong>Mobile : &nbsp;</strong>{{geted?.mobile}}</p>
-        <br>
-        <br>
-        <span>URL : sita?token={{this.data}}</span>
-    </div>
-  </div>
-  <div class="card text-white bg-dark mb-3" *ngIf="err" style="width: 28rem;">
-    <div class="card-header">Error</div>
-    <div class="card-body">
-        <h3>{{this.err}}</h3>
-    </div>
-  </div>
+
+
+
+  <div class="container">
+        <div class="card text-white bg-dark mb-3 w-100" *ngIf="geted">
+          <div class="card-header">Details</div>
+          <div class="card-body">
+             
+              <div class="card-text">
+                <p><strong>First Name : &nbsp;</strong>{{geted?.fname}}</p>
+                <p><strong>Last Name : &nbsp;</strong>{{geted?.lname}}</p>
+                <p><strong>Email : &nbsp;</strong>{{geted?.email}}</p>
+                <p><strong>Key : &nbsp;</strong>{{geted?.id}}</p>
+                <p><strong>Mobile : &nbsp;</strong>{{geted?.mobile}}</p>
+                
+             
+            </div>
+          </div>
+        </div>
+        <div class="card text-white bg-dark mb-3 w-100"  >
+          <div class="card-header">URL</div>
+          <div class="card-body">
+            <div class="w-100 " style="word-wrap: break-word;">
+               <a [href]="[href]" class="text-white">
+                {{href}}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+     
