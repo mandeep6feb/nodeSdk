@@ -12,12 +12,12 @@ export class WebSiteComponent implements OnInit {
   geted: any;
   err: any
   href: any;
-  constructor(public a_vate:  ActivatedRoute, public http: HttpClient,private router: Router) {
+  constructor(public a_vate:  ActivatedRoute, public http: HttpClient) {
  
   }
   getData() {
     setTimeout( () => {
-      const url = 'https://d43a5ba43d01.ngrok.io/'
+      const url = 'https://ade3463e0e48.ngrok.io/'
       // const url = 'http://localhost:3000/'
       this.http.get( url + 'sita?token=' + this.data ).subscribe( (res: any): void => {
        this.geted =res;
